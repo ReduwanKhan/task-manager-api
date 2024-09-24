@@ -5,11 +5,14 @@ import helmet from "helmet";
 import mongoose from "mongoose";
 import {
   DATABASE,
+  MAX_JSON_SIZE,
+  PORT,
   REQUEST_NUMBER,
   REQUEST_TIME,
+  URL_ENCODE,
   WEB_CACHE,
-} from "./app/config/config";
-import router from "./routes/api.js";
+} from "./app/config/config.js";
+import { router } from "./routes/api.js";
 
 const app = express();
 
@@ -37,3 +40,7 @@ mongoose
   });
 
 app.use("/api", router);
+
+app.listen(PORT, () => {
+  console.log("Server Connected on " + PORT);
+});
