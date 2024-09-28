@@ -15,8 +15,16 @@ router.post("/CodeVerify", UsersController.CodeVerify);
 router.post("/ResetPassword", UsersController.ResetPassword);
 
 //Tasks
-router.post("/CreateTask", TaskController.CreateTask);
-router.get("/UpdateTaskStatus", TaskController.UpdateTaskStatus);
-router.get("/TaskListByStatus", TaskController.TaskListByStatus);
-router.get("/DeleteTask", TaskController.DeleteTask);
-router.get("/CountTask", TaskController.CountTask);
+router.post("/CreateTask", AuthMiddleware, TaskController.CreateTask);
+router.get(
+  "/UpdateTaskStatus/:id/:status",
+  AuthMiddleware,
+  TaskController.UpdateTaskStatus
+);
+router.get(
+  "/TaskListByStatus/:status",
+  AuthMiddleware,
+  TaskController.TaskListByStatus
+);
+router.get("/DeleteTask/:id", AuthMiddleware, TaskController.DeleteTask);
+router.get("/CountTask", AuthMiddleware, TaskController.CountTask);

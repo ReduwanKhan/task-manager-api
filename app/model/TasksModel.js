@@ -5,8 +5,7 @@ const TaskSchema = new mongoose.Schema(
     title: { type: String, required: true },
     description: { type: String, required: true },
     status: { type: String, required: true },
-    user_id: { type: Mongoose.Schema.Types.ObjectId, required: true },
-    password: { type: String, unique: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, required: true },
   },
   {
     timestamps: true,
@@ -14,6 +13,6 @@ const TaskSchema = new mongoose.Schema(
   }
 );
 
-const Tasks = mongoose.model("Tasks", TaskSchema);
+const Tasks = mongoose.model("tasks", TaskSchema);
 
 export default Tasks;
