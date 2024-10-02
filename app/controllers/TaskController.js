@@ -70,7 +70,7 @@ export const CountTask = async (req, res) => {
     ]);
     return res.json({
       status: "Success",
-      message: "Count Successfully",
+      message: "Counted Successfully ",
       data: data,
     });
   } catch (e) {
